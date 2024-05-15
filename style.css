@@ -17,6 +17,7 @@ button {
   margin: 30px auto;
   width: 150px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .grid-container {

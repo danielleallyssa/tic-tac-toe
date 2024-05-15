@@ -10,7 +10,7 @@ const resetButton = document.querySelector("#reset");
 // Sets the initial value of the player input
 let currentPlayer = "X";
 
-// EVENT LISTENERS
+// EVENT LISTENER
 cells.forEach((cell) =>
   cell.addEventListener("click", function () {
     changePlayer();

@@ -25,6 +25,7 @@ const winConditions = [
 for (let i = 0; i < winConditions.length; i++) {
   for (let j = 0; j < 3; j++) {
     console.log(winConditions[i][j]);
+    // if(winConditions[i][j] === document.querySelector(`[index="${j}"]`))
   }
 }
 

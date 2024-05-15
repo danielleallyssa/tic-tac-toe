@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 30px auto;
+  width: 150px;
+  text-transform: uppercase;
+}
+
+.grid-container {
+  display: grid;
+  width: 300px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  box-shadow: 0 0 0 1px;
+}
+
+.cell {
+  background: rgb(243, 243, 243);
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+  cursor: pointer;
+}

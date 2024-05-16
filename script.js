@@ -13,8 +13,10 @@ let currentPlayer = "X";
 // EVENT LISTENER
 cells.forEach((cell) =>
   cell.addEventListener("click", function () {
+    if(cell.textContent === ''){
+      changeCellContent(cell)
+    }
     changePlayer();
-    changeCellContent(cell);
   })
 );
 

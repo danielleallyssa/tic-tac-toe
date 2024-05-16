@@ -11,12 +11,17 @@ const resetButton = document.querySelector("#reset");
 let currentPlayer = "X";
 
 // EVENT LISTENER
-cells.forEach((cell) =>
+cells.forEach((cell, index) =>
   cell.addEventListener("click", function () {
     if(cell.textContent === ''){
       changeCellContent(cell)
     }
     changePlayer();
+<<<<<<< main
+    changeCellContent(cell);
+    updateBoardArray(cell, index)
+=======
+>>>>>>> main
   })
 );
 
@@ -41,3 +46,29 @@ const clearCellContent = (element) => {
   element.style.backgroundColor = "rgb(243, 243, 243)";
   element.style.color = "black";
 };
+
+// CHECK WINNER
+// Define win conditons
+const winConditions = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+]
+
+// Board Array
+let boardArray = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
+]
+
+// Update board array with plays
+function updateBoardArray(cell, index)  {
+  boardArray[index] = currentPlayer;
+  console.log(boardArray);
+}

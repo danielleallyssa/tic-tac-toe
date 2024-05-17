@@ -10,7 +10,7 @@ const resetButton = document.querySelector("#reset");
 // Sets the initial value of the player input
 let currentPlayer = "X";
 
-// Winning conditions
+// Define win conditons
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -22,20 +22,23 @@ const winConditions = [
   [2, 4, 6],
 ];
 
-for (let i = 0; i < winConditions.length; i++) {
-  for (let j = 0; j < 3; j++) {
-    console.log(winConditions[i][j]);
-    // if(winConditions[i][j] === document.querySelector(`[index="${j}"]`))
-  }
-}
+// Board Array
+let boardArray = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
+];
 
 // EVENT LISTENER
-cells.forEach((cell) =>
+cells.forEach((cell, index) =>
   cell.addEventListener("click", function () {
     if (cell.textContent === "") {
-      changePlayer();
       changeCellContent(cell);
+      changePlayer();
     }
+
+    changeCellContent(cell);
+    updateBoardArray(cell, index);
   })
 );
 
@@ -60,3 +63,9 @@ const clearCellContent = (element) => {
   element.style.backgroundColor = "rgb(243, 243, 243)";
   element.style.color = "black";
 };
+
+// Update board array with plays
+function updateBoardArray(cell, index) {
+  boardArray[index] = currentPlayer;
+  console.log(boardArray);
+}

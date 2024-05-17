@@ -6,6 +6,8 @@ const cells = document.querySelectorAll(".cell");
 
 // Selects button we'll use to reset
 const resetButton = document.querySelector("#reset");
+
+// Selects element to display winner
 const h2 = document.querySelector("h2");
 
 // Sets the initial value of the player input
@@ -29,7 +31,7 @@ const userInput = ["", "", "", "", "", "", "", "", ""];
 
 // EVENT LISTENER
 // Click event for each cell
-cells.forEach((cell, index) =>
+cells.forEach((cell) =>
   cell.addEventListener("click", function () {
     // If cell is blank it will: update the DOM, pushed into the userInput array and change player
     if (cell.textContent === "") {
@@ -61,15 +63,13 @@ const changePlayer = () => {
 // Updates content in the DOM
 const changeCellContent = (element) => {
   element.textContent = currentPlayer;
-  element.style.backgroundColor = "black";
-  element.style.color = "white";
+  element.classList.add("dark");
 };
 
 // Clears content in the DOM
 const clearContent = (element) => {
   element.textContent = "";
-  element.style.backgroundColor = "rgb(243, 243, 243)";
-  element.style.color = "black";
+  element.classList.remove("dark");
   h2.textContent = "";
 };
 

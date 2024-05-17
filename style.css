@@ -31,6 +31,7 @@ button {
 
 .cell {
   background: rgb(243, 243, 243);
+  color: black;
   height: 100px;
   width: 100px;
   border: 1px solid black;
@@ -41,4 +42,9 @@ button {
 
   font-size: 3rem;
   cursor: pointer;
+}
+
+.dark {
+  background: black;
+  color: white;
 }

@@ -33,8 +33,8 @@ const userInput = ["", "", "", "", "", "", "", "", ""];
 // Click event for each cell
 cells.forEach((cell) =>
   cell.addEventListener("click", function () {
-    // If cell is blank it will: update the DOM, pushed into the userInput array and change player
-    if (cell.textContent === "") {
+    // If cell is blank and the winner is blank it will: update the DOM, pushed into the userInput array and change player
+    if (cell.textContent === "" && h2.textContent === "") {
       changeCellContent(cell);
       pushInputIntoArr(cell.getAttribute("index"));
       changePlayer();
@@ -63,13 +63,25 @@ const changePlayer = () => {
 // Updates content in the DOM
 const changeCellContent = (element) => {
   element.textContent = currentPlayer;
-  element.classList.add("dark");
+  if (currentPlayer === "X") {
+    element.classList.add("x-cell");
+  } else {
+    element.classList.add("o-cell");
+  }
+};
+
+const changeWinnerCells = (arr) => {
+  for (let each of arr) {
+    each.classList.add("winner");
+  }
 };
 
 // Clears content in the DOM
 const clearContent = (element) => {
   element.textContent = "";
-  element.classList.remove("dark");
+  element.classList.remove("o-cell");
+  element.classList.remove("x-cell");
+  element.classList.remove("winner");
   h2.textContent = "";
 };
 
@@ -92,12 +104,14 @@ function checkWinner() {
       userInput[con2] === "X"
     ) {
       declareWinner("X");
+      changeWinnerCells([cells[con0], cells[con1], cells[con2]]);
     } else if (
       userInput[con0] === "O" &&
       userInput[con1] === "O" &&
       userInput[con2] === "O"
     ) {
       declareWinner("0");
+      changeWinnerCells([cells[con0], cells[con1], cells[con2]]);
     }
   }
 }

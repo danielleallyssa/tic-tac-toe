@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-size: 16px;
   font-family: sans-serif;
+  background: #232c46;
+  color: white;
 }
 
 h1,
@@ -19,22 +21,33 @@ button {
   width: 150px;
   text-transform: uppercase;
   cursor: pointer;
+
+  color: white;
+  border-radius: 2px;
+  border: none;
+  color: #232c46;
+  padding: 10px;
 }
 
 .grid-container {
-  display: grid;
-  width: 300px;
-  grid-template-columns: repeat(3, 1fr);
+  width: 360px;
+  height: 360px;
   margin: auto;
-  box-shadow: 0 0 0 1px;
+  padding: 20px;
+  background: #3f4e6b;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
 
 .cell {
-  background: rgb(243, 243, 243);
-  color: black;
+  border-radius: 7px;
+  background: #313d62;
+  color: white;
   height: 100px;
-  width: 100px;
-  border: 1px solid black;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -44,7 +57,16 @@ button {
   cursor: pointer;
 }
 
-.dark {
-  background: black;
-  color: white;
+.x-cell {
+  background: #929fb6;
+  box-shadow: inset 0 0 15px 2px rgb(35 44 70 / 30%);
+}
+
+.o-cell {
+  background: #b9ccf0;
+  box-shadow: inset 0 0 15px 2px rgb(35 44 70 / 30%);
+}
+.winner {
+  background: rgb(67, 131, 67);
+  box-shadow: inset 0 0 15px 2px rgb(35 44 70 / 30%);
 }
